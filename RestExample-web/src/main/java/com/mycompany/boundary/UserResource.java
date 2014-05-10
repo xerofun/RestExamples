@@ -1,18 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.mycompany;
+package com.mycompany.boundary;
 
+import com.mycompany.ejb.UserService;
+import javax.inject.Inject;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.GET;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 /**
  * REST Web Service
@@ -20,15 +18,19 @@ import javax.ws.rs.Produces;
  * @author Brian
  */
 @Path("User")
-public class UserResource {
-
+public class UserResource
+{
+    @Inject
+    UserService userService;
+    
     @Context
     private UriInfo context;
 
     /**
      * Creates a new instance of UserResource
      */
-    public UserResource() {
+    public UserResource()
+    {
     }
 
     /**
@@ -37,10 +39,10 @@ public class UserResource {
      * @return an instance of java.lang.String
      */
     @GET
-    @Produces("application/json")
-    public String getJson() {
-        //TODO return proper representation object
-        throw new UnsupportedOperationException();
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getUsers()
+    {
+        return Response.ok(userService.getAllUsers()).build();
     }
 
     /**
@@ -50,7 +52,8 @@ public class UserResource {
      * @return an HTTP response with content of the updated or created resource.
      */
     @PUT
-    @Consumes("application/json")
-    public void putJson(String content) {
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void putJson(String content)
+    {
     }
 }

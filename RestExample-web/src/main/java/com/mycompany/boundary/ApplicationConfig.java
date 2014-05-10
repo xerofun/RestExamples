@@ -1,4 +1,4 @@
-package com.mycompany;
+package com.mycompany.boundary;
 
 import java.util.Set;
 import javax.ws.rs.core.Application;
@@ -25,7 +25,7 @@ public class ApplicationConfig extends Application
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
-        resources.add(com.mycompany.UserResource.class);
+        resources.add(com.mycompany.boundary.UserResource.class);
     }
 
 }
