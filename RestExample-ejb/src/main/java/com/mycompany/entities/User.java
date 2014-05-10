@@ -1,5 +1,7 @@
 package com.mycompany.entities;
 
+import com.mycompany.validation.SSN;
+
 /**
  *
  * @author Brian
@@ -10,6 +12,8 @@ public class User
     
     private String firstName;
     private String lastName;
+    
+    @SSN
     private String ssn;
     private String accountId;
 

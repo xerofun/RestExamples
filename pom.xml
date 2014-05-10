@@ -23,5 +23,6 @@
     <module>RestExample-ear</module>
     <module>RestExample-web</module>
     <module>RestExample-ejb</module>
+    <module>Validation</module>
   </modules>
 </project>

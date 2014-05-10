@@ -8,7 +8,6 @@ package com.mycompany.ejb;
 
 import com.mycompany.entities.User;
 import java.util.Collection;
-import javax.ejb.embeddable.EJBContainer;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.Before;
