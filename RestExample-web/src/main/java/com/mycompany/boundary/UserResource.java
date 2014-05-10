@@ -5,6 +5,7 @@ import com.mycompany.ejb.UserNotFoundException;
 import com.mycompany.ejb.UserService;
 import com.mycompany.entities.User;
 import javax.inject.Inject;
+import javax.validation.Valid;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
@@ -68,8 +69,10 @@ public class UserResource
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response addUser(User user)
-    {           
+    public Response addUser(@Valid User user)
+    {    
+        System.out.println("Adding user");
+        
         Response response;
         
         try
