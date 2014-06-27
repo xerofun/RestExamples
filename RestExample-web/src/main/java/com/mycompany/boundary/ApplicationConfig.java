@@ -1,5 +1,6 @@
 package com.mycompany.boundary;
 
+import com.mycompany.ejb.UserAlreadyExistsExceptionMapper;
 import java.util.HashMap;
 import java.util.Map;
 import javax.ws.rs.ApplicationPath;
@@ -18,6 +19,7 @@ public class ApplicationConfig extends ResourceConfig
         packages("com.mycompany.boundary");
         addProperties(validationProperties());
         
+        register(UserAlreadyExistsExceptionMapper.class);
     }
     
     private Map<String, Object> validationProperties()

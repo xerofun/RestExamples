@@ -87,4 +87,22 @@ public class UserResource
 
         return response;
     }
+    
+    /**
+     * Demonstrates how the code is simplified using an exception mapper
+     * @see 
+     * @param user
+     * @return
+     * @throws UserAlreadyExistsException 
+     */
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("/exceptionmapped")
+    public Response addUserExceptionMapped(@Valid User user) throws UserAlreadyExistsException
+    {
+        System.out.println("Adding user with an exception mapper");
+        
+        userService.addUser(user);
+        return Response.status(Response.Status.CREATED).build();
+    }
 }

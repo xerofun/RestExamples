@@ -5,13 +5,15 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.PostConstruct;
-import javax.ejb.Stateless;
+import javax.ejb.Singleton;
+import javax.ejb.Startup;
 
 /**
  *
  * @author Brian
  */
-@Stateless
+@Singleton
+@Startup
 public class UserService 
 {
     private final Map<Long, User> users = new HashMap<>();
